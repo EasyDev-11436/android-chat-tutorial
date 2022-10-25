@@ -51,9 +51,9 @@ public final class MainActivity extends AppCompatActivity {
 
         // Step 3 - Authenticate and connect the user
         User user = new User();
-        user.setId("tutorial-droid");
-        user.setName("Tutorial Droid");
-        user.setImage("https://bit.ly/2TIt8NR");
+        user.setId("easydev-11436");
+        user.setName("EasyDev");
+        user.setImage("https://avatars.dicebear.com/api/personas/EasyDev.svg");
 
         client.connectUser(
                 user,
