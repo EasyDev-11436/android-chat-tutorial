@@ -1,0 +1,53 @@
+name: Build & Upload APKs to [anonfiles.com][bayfiles.com]
+
+on:
+
+  workflow_dispatch:
+
+    inputs:
+
+      uploadProvider:
+
+        description: '[anonfiles.com], [bayfiles.com]'
+
+        required: true
+
+        default: 'anonfiles.com'
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: set up JDK
+
+      uses: actions/setup-java@v1
+
+      with:
+
+        java-version: 11
+
+    # [1.7, 1.8, 11, ...]
+
+    - name: Make Gradle executable
+
+      run: chmod +x ./gradlew
+
+    - name: Build with Gradle
+
+      run: ./gradlew build
+
+    - name: Checking Files
+
+      run: find -name *.apk
+
+    - name: Uploading APKs to ${{ github.event.inputs.uploadProvider }}
+
+      run: |
+
+        for f in `find -name "*.apk"`; do curl --silent -F file=@$f https://api.${{ github.event.inputs.uploadProvider }}/upload | jq -r --arg link "Link: " --arg size "Size: " --arg name "File Name: " '"\n" + $name + .data.file.metadata.name + "\n" +$link + .data.file.url.short + "\n" + $size + .data.file.metadata.size.readable + "\n"'; done
