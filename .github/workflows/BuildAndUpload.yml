@@ -40,7 +40,7 @@ jobs:
 
     - name: Build with Gradle
 
-      run: ./gradlew build
+      run: ./gradlew :samplejava:assembleDebug
 
     - name: Checking Files
 
