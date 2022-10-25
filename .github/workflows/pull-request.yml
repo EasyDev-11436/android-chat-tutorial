@@ -15,4 +15,4 @@ jobs:
         distribution: adopt
         java-version: 11
     - name: Build app
-      run: ./gradlew assembleDebug
+      run: ./gradlew tasks
