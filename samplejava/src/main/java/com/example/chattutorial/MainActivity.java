@@ -57,7 +57,7 @@ public final class MainActivity extends AppCompatActivity {
 
         client.connectUser(
                 user,
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidHV0b3JpYWwtZHJvaWQifQ.NhEr0hP9W9nwqV7ZkdShxvi02C5PR7SJE7Cs4y7kyqg"
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWFzeWRldi0xMTQzNiJ9.T9EBqI7ksB-3R3bGfTwnemamel4HMSTLZaFL-3z_RJ4"
         ).enqueue();
 
         // Step 4 - Set the channel list filter and order
